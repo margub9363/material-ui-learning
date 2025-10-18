@@ -1,5 +1,7 @@
+import Test from "./Test";
+
 function App() {
-  return <div>Hello World!</div>;
+  return <Test />;
 }
 
 export default App;
