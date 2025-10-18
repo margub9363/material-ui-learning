@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { Button, Typography, TextField } from "@mui/material";
+import {
+  Button,
+  Typography,
+  TextField,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 
 export const Test = () => {
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
     password: "",
+    subscribe: false,
   });
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -20,7 +28,10 @@ export const Test = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handleSubmit}
+      >
         <TextField
           name="name"
           value={inputs.name}
@@ -46,9 +57,23 @@ export const Test = () => {
           placeholder="Password"
           variant="filled"
         />
+
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label="Subscribe to Newsleter"
+            onChange={() => {
+              setInputs((prevState) => ({
+                ...prevState,
+                subscribe: !inputs.subscribe,
+              }));
+            }}
+          />
+          <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+        </FormGroup>
+
         <Button type="submit">Submit</Button>
       </form>
-      <Typography>Hi {inputs.name} </Typography>
     </div>
   );
 };
