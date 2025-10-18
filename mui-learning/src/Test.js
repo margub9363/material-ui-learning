@@ -1,12 +1,24 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 export const Test = () => {
   return (
     <div>
-      <Typography variant="h2" sx={{ color: "yellow" }} align="center">
-        Test
-      </Typography>
+      <Button
+        variant="contained"
+        size="large"
+        sx={{ margin: 3, padding: 2 }}
+        color="info"
+      >
+        First
+      </Button>
+      <Button variant="outlined" size="medium" color="success">
+        Second
+      </Button>
+      <Button variant="text" size="small">
+        {" "}
+        Third
+      </Button>
     </div>
   );
 };
